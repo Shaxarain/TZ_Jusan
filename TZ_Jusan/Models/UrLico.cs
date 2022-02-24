@@ -1,0 +1,37 @@
+﻿using System;
+using System.Linq;
+
+namespace TZ_Jusan.Models
+{
+    public class UrLico : ContrAgent, IPrintable
+    {
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value.Any(char.IsNumber))
+                {
+                    Console.WriteLine("Incorrectly entered surname");
+                }
+                else
+                {
+                    _name = value;
+                }
+            }
+        }
+        public void Print()
+        {
+            Console.WriteLine($"UrLica: \n{Id} | {Idn} | {CreateDate} | {CreateAuthor} | {EditDate} | {EditAuthor} | " +
+                $"{Name}");
+        }
+        public UrLico() { }
+        public UrLico(int id, string idn, DateTime createDate, string createAuthor, DateTime editDate,
+            string editAuthor, string address, string name)
+            :base(id, idn, createDate, createAuthor, editDate, editAuthor, address)
+        {
+            _name = name;
+        }
+    }
+}
