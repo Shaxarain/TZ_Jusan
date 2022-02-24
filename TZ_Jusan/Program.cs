@@ -15,26 +15,39 @@ namespace TZ_Jusan
     {
         public static void WriteXML<T>(List<T> a)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(List<T>));
-            using (FileStream fs = new FileStream($"{typeof(T).Name}.xml", FileMode.OpenOrCreate))
+            try
             {
-                formatter.Serialize(fs, a);
+                XmlSerializer formatter = new XmlSerializer(typeof(List<T>));
+                using (FileStream fs = new FileStream($"{typeof(T).Name}.xml", FileMode.OpenOrCreate))
+                {
+                    formatter.Serialize(fs, a);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
         public static List<T> ReadXML<T>(List<T> a)
         {
-            Type t = typeof(T);
-            FieldInfo[] fields = t.GetFields(BindingFlags.Public);
-            XmlSerializer formatter = new XmlSerializer(typeof(List<T>));
-            using (FileStream fs = new FileStream($"{typeof(T).Name}.xml", FileMode.OpenOrCreate))
+            try
             {
-                List<T> people = formatter.Deserialize(fs) as List<T>;
-
-                if (people != null)
+                XmlSerializer formatter = new XmlSerializer(typeof(List<T>));
+                using (FileStream fs = new FileStream($"{typeof(T).Name}.xml", FileMode.OpenOrCreate))
                 {
-                    return people;
+                    List<T> people = formatter.Deserialize(fs) as List<T>;
+
+                    if (people != null)
+                    {
+                        return people;
+                    }
+                    return null;
                 }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
                 return null;
             }
         }
