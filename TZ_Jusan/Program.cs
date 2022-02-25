@@ -66,6 +66,16 @@ namespace TZ_Jusan
             {
                 t.Print();
             }
+            
+
+            var sortedFiz = from f in test1
+                            orderby f.Surname, f.Name, f.Midname
+                            select f;
+            foreach (var sf in sortedFiz)
+            {
+                Console.WriteLine($"Sorted Fizlica: \n{sf.Id} | {sf.Idn} | {sf.CreateDate} | {sf.CreateAuthor} | {sf.EditDate} | {sf.EditAuthor} | " +
+                $"{sf.Address} | {sf.Surname} | {sf.Name} | {sf.Midname}");
+            }
             Console.ReadLine();
         }
     }

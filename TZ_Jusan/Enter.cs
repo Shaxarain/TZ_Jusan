@@ -15,7 +15,12 @@ namespace TZ_Jusan.Models
                     "Kimiz", "101, Rayimbeka", "Orange", "Katya", "Victorovna"),
                 //error num in surname
                 new FizLico(102, "000606573999", DateTime.Parse("1997-12-28"), "Maria", DateTime.Parse("1998-01-05"),
-                    "Egor", "73, Leningradova", "Rim0v", "Sergey", "Dmitrievich")
+                    "Egor", "73, Leningradova", "Rim0v", "Sergey", "Dmitrievich"),
+                new FizLico(103, "000000000000", DateTime.Parse("1998-11-10"), "Cap", DateTime.Parse("1999-01-01"),
+                    "Liza", "1, Jhumabaeva", "Norov", "Stepan", "Larionovich"),
+                new FizLico(104, "000000000000", DateTime.Parse("1998-11-10"), "Cap", DateTime.Parse("1999-01-01"),
+                    "Liza", "1, Jhumabaeva", "Norov", "Stepan", "Zarionovich")
+
         };
 
         public List<UrLico> urLica = new List<UrLico>
