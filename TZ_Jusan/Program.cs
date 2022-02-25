@@ -59,6 +59,8 @@ namespace TZ_Jusan
             {
                 t.Print();
             }
+
+
             WriteXML<UrLico>(Enter.urLica);
             var test2 = ReadXML<UrLico>(Enter.urLica);
             foreach (var t in test2)
@@ -69,13 +71,23 @@ namespace TZ_Jusan
             var sortedFiz = from f in test1
                             orderby f.Surname, f.Name, f.Midname
                             select f;
+
             foreach (var sf in sortedFiz)
             {
                 Console.WriteLine($"Sorted Fizlica: \n{sf.Id} | {sf.Idn} | {sf.CreateDate} | {sf.CreateAuthor} | {sf.EditDate} | {sf.EditAuthor} | " +
                 $"{sf.Address} | {sf.Surname} | {sf.Name} | {sf.Midname}");
             }
 
+            var sortedUr = from s in test2
+                            orderby s.staff.Count descending
+                            select s;
+            var five = sortedUr.Take(5);
 
+            foreach (var u in five)
+            {
+                Console.WriteLine($"UrLica:\n{u.staff.Count}\n{u.Id} | {u.Idn} | {u.CreateDate} | {u.CreateAuthor} | {u.EditDate} | {u.EditAuthor} | " +
+                $"{u.Name}");
+            }
             Console.ReadLine();
         }
     }

@@ -23,12 +23,12 @@ namespace TZ_Jusan.Models
             }
         }
 
-        public List<FizLico> _staff;
+        public List<FizLico> staff;
 
         public void Print()
         {
             Console.WriteLine($"UrLica: \n{Id} | {Idn} | {CreateDate} | {CreateAuthor} | {EditDate} | {EditAuthor} | " +
-                $"{Name}");
+                $"{Name} | Contacts");
         }
         public UrLico() { }
         public UrLico(int id, string idn, DateTime createDate, string createAuthor, DateTime editDate,
@@ -36,7 +36,7 @@ namespace TZ_Jusan.Models
             :base(id, idn, createDate, createAuthor, editDate, editAuthor, address)
         {
             _name = name;
-            _staff = st;
+            staff = st;
         }
     }
 }
