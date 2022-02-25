@@ -53,21 +53,19 @@ namespace TZ_Jusan
         }
         static void Main(string[] args)
         {
-            Enter enterData = new Enter();
-            WriteXML<FizLico>(enterData.fizLica);
-            var test1 = ReadXML<FizLico>(enterData.fizLica);
+            WriteXML<FizLico>(Enter.fizLica1);
+            var test1 = ReadXML<FizLico>(Enter.fizLica1);
             foreach(var t in test1)
             {
                 t.Print();
             }
-            WriteXML<UrLico>(enterData.urLica);
-            var test2 = ReadXML<UrLico>(enterData.urLica);
+            WriteXML<UrLico>(Enter.urLica);
+            var test2 = ReadXML<UrLico>(Enter.urLica);
             foreach (var t in test2)
             {
                 t.Print();
             }
             
-
             var sortedFiz = from f in test1
                             orderby f.Surname, f.Name, f.Midname
                             select f;
@@ -76,6 +74,8 @@ namespace TZ_Jusan
                 Console.WriteLine($"Sorted Fizlica: \n{sf.Id} | {sf.Idn} | {sf.CreateDate} | {sf.CreateAuthor} | {sf.EditDate} | {sf.EditAuthor} | " +
                 $"{sf.Address} | {sf.Surname} | {sf.Name} | {sf.Midname}");
             }
+
+
             Console.ReadLine();
         }
     }

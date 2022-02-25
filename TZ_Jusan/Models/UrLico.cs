@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace TZ_Jusan.Models
@@ -21,6 +22,9 @@ namespace TZ_Jusan.Models
                 }
             }
         }
+
+        public List<FizLico> _staff;
+
         public void Print()
         {
             Console.WriteLine($"UrLica: \n{Id} | {Idn} | {CreateDate} | {CreateAuthor} | {EditDate} | {EditAuthor} | " +
@@ -28,10 +32,11 @@ namespace TZ_Jusan.Models
         }
         public UrLico() { }
         public UrLico(int id, string idn, DateTime createDate, string createAuthor, DateTime editDate,
-            string editAuthor, string address, string name)
+            string editAuthor, string address, string name, List<FizLico> st)
             :base(id, idn, createDate, createAuthor, editDate, editAuthor, address)
         {
             _name = name;
+            _staff = st;
         }
     }
 }
